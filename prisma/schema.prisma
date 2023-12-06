@@ -8,14 +8,14 @@ datasource db {
 }
 
 model Usuario {
-  id       Int      @id @default(autoincrement())
-  nombre   String
-  correo   String   @unique
-  ventas   Venta[]
+  id     Int     @id @default(autoincrement())
+  nombre String
+  correo String  @unique
+  ventas Venta[]
 }
 
 model Producto {
-  id          Int      @id @default(autoincrement())
+  id          Int     @id @default(autoincrement())
   nombre      String
   descripcion String?
   precio      Float
@@ -23,12 +23,19 @@ model Producto {
 }
 
 model Venta {
-  id          Int      @id @default(autoincrement())
-  fecha       DateTime
-  cantidad    Int
-  total       Float
-  usuario     Usuario  @relation(fields: [usuarioId], references: [id])
-  usuarioId   Int
-  producto    Producto @relation(fields: [productoId], references: [id])
-  productoId  Int
+  id         Int      @id @default(autoincrement())
+  fecha      DateTime
+  cantidad   Int
+  total      Float
+  usuario    Usuario  @relation(fields: [usuarioId], references: [id])
+  usuarioId  Int
+  producto   Producto @relation(fields: [productoId], references: [id])
+  productoId Int
+}
+
+model Queries {
+  id  Int      @id @default(autoincrement())
+  Query String @db.Text()
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
 }

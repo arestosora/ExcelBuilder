@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 
 export class PrismaService extends PrismaClient {
-    onInit() {
-        this.$connect;
+    public async onModuleInit() {
+        await this.$connect();
     }
 }

@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/app.js",
   "scripts": {
-    "start": " npm run start:script",
+    "start": "npm run start:script",
     "build": "tsc --project tsconfig.json",
     "start:script": "npm run build && node --enable-source-maps dist/app.js"
   },
@@ -19,9 +19,13 @@
   },
   "dependencies": {
     "@prisma/client": "^5.6.0",
+    "@types/nodemailer": "^6.4.14",
     "@types/signale": "^1.4.7",
     "dotenv": "^16.3.1",
     "exceljs": "^4.4.0",
+    "mysql2": "^3.6.5",
+    "nodemailer": "^6.9.7",
+    "rxjs": "^7.8.1",
     "signale": "^1.4.0"
   },
   "signale": {
