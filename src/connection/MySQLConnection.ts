@@ -15,8 +15,6 @@ export class MySQLConnection {
                 console.error('Error connecting to MySQL: ', err);
                 throw err;
             }
-
-            console.log('Connected to MySQL!');
         });
     }
 

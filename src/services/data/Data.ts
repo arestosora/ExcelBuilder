@@ -1,16 +1,13 @@
-
-import { PrismaService } from "../PrismaService";
+import { Execute } from "../../utils/Queries/Execute";
 
 export class Data {
-    constructor(private prisma: PrismaService) { }
-
-    public async getData() {
-        const Data = await this.prisma.queries.findMany({
-            orderBy: {
-                createdAt: 'desc'
-            }
-        });
-        // const Data = await this.prisma.venta.findMany();
+    private pool: Execute
+    constructor() {
+        this.pool = new Execute();
+    }
+    
+    public async getData(query: string) {
+        const Data = this.pool.ExecuteQuery(query)
         return Data;
     }
 }
